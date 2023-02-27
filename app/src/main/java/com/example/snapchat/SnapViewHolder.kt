@@ -4,6 +4,7 @@ package com.example.snapchat
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.snapchat.databinding.FragmentMainBinding
 import com.example.snapchat.databinding.ListItemLayoutBinding
 
 class SnapViewHolder(val binding: ListItemLayoutBinding) :
@@ -14,9 +15,13 @@ class SnapViewHolder(val binding: ListItemLayoutBinding) :
 
     init {
         binding.root.setOnClickListener {
-        currentSnap.opened = true
-            binding.root.findNavController()
-                .navigate(R.id.action_mainFragment_to_snapPhotoFragment)
+            if (!currentSnap.opened) {
+                binding.root.findNavController()
+                    .navigate(R.id.action_mainFragment_to_snapPhotoFragment)
+            }
+            currentSnap.opened = true
+            setSnapStatus()
+
         }
     }
 
@@ -24,16 +29,14 @@ class SnapViewHolder(val binding: ListItemLayoutBinding) :
         currentSnap = snap
         binding.userName.text = currentSnap.username
         binding.openedTime.text = currentSnap.time
-        setSnapStatus(currentSnap.opened)
+        setSnapStatus()
         binding.imageViewSnapImage.setImageResource(currentSnap.photoResourceId)
     }
-    fun setSnapStatus(opened : Boolean) {
-        if (opened) {
-            binding.snapStatus.text = currentSnap.status
-            binding.openedIcon.setImageResource(currentSnap.iconID)
-            binding.snapStatus.setTextColor(currentSnap.color)
-        }
 
+    fun setSnapStatus() {
+        binding.snapStatus.text = currentSnap.status
+        binding.openedIcon.setImageResource(currentSnap.iconID)
+        binding.snapStatus.setTextColor(currentSnap.color)
     }
 
 }

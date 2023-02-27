@@ -25,7 +25,8 @@ data class Snap(
         val color: Int
         get() =
             if(opened)
-                Color.parseColor("#F60047")
-            else
                 Color.GRAY
+            else
+                Color.parseColor("#F60047")
+
     }
