@@ -36,7 +36,7 @@
         android:layout_marginTop="8dp"
         android:textColor="#E80F0F"
         android:textSize="18sp"
-        android:textStyle="normal|bold"
+        android:textStyle="normal"
         app:layout_constraintStart_toEndOf="@+id/openedIcon"
         app:layout_constraintTop_toBottomOf="@id/userName"
         tools:text="New Snap" />

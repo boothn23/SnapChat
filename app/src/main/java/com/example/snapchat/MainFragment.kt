@@ -13,7 +13,7 @@ class MainFragment : Fragment() {
 
     val snaps = listOf(
         com.example.snapchat.Snap("Al Gore", "3m", R.drawable.joe, false),
-        Snap("Gary Johnson", "8h", R.drawable.joe, true),
+        Snap("Gary Johnson", "8h", R.drawable.joe, false),
         Snap("Ross Perot", "3d", R.drawable.joe, false),
     )
 
